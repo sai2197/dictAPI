@@ -1,0 +1,19 @@
+{
+  "name": "dictapi",
+  "version": "1.0.0",
+  "description": "v1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sai2197/dictAPI.git"
+  },
+  "author": "sai krishna maurya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sai2197/dictAPI/issues"
+  },
+  "homepage": "https://github.com/sai2197/dictAPI#readme"
+}
