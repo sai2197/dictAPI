@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sai2197/dictAPI/issues"
   },
-  "homepage": "https://github.com/sai2197/dictAPI#readme"
+  "homepage": "https://github.com/sai2197/dictAPI#readme",
+  "dependencies": {
+    "underscore": "^1.9.1"
+  }
 }
