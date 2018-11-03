@@ -5,6 +5,12 @@ const options = {
     dataType: 'JSON',
     method: 'GET'
 };
+const wordSet = ['neurodiversity', 'vexillologist', 'frass', 'umwelt', 'cerrado', 'photoclinometry', 'metamaterial', 'placemaking', 'optogenetics', 'pro-am',
+    'spintronics','trichromatic', 'upstander', 'panpsychism', 'ambivert', 'biophilia', 'praxeology', 'cymatics', 'rockist', 'blazar', 'cupule', 'magnetar',
+    'agnosia', 'roustabout', 'jitney', 'cosplay', 'proprioception', 'sociogenic', 'evanesce', 'mulier', 'highbinder', 'codicology', 'ornithology',
+    'genethlialogy', 'seamark', 'monomachy', 'consentient', 'pecuniosity', 'metewand', 'tympanites', 'ultraism', 'panurgic', 'mundungus', 'luna moth',
+    'kiasu', 'nemophilist' , 'fascicle', 'supercilious', 'torii', 'celadon'];
 
 exports.main = base_url;
+exports.wordOfDay = wordSet;
 exports.headerObj = options;

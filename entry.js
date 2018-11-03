@@ -9,7 +9,8 @@
 * The function below is used to guide the user on how to use the API.
 * */
 
-const _=require('underscore');
+const _= require('underscore');
+const util = require('./Utils');
 
 function printHelp() {
     console.log('Usage: ');
@@ -66,6 +67,10 @@ function printAllData(data) {
     } catch (e) {
         console.log('No Examples found. \n');
     }
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
 }
 
 if (process.argv.length>=3) {
@@ -200,7 +205,8 @@ if (process.argv.length>=3) {
 
                 break;
             case 'wod':
-                console.log('wod');
+                console.log(util.wordOfDay.length);
+                console.log('Word-of-the-day is:  ' + util.wordOfDay[getRandomInt(util.wordOfDay.length)]);
                 break;
             case 'play':
                 console.log('play');
