@@ -32,41 +32,53 @@ function printHelp() {
 
 function printAllData(data) {
 
-    console.log('Definition: ' + data[0].defnition);
-    console.log('\n');
-
-    try {
-        var antString = 'Antonyms:  ';
-        data[1].ant.forEach(function (antObj) {
-            antString += antObj.text + ', '
-        });
-        console.log(antString);
-        console.log('\n');
-    } catch (e) {
-        console.log('No Antonyms found. \n');
-    }
-
-    try {
-        var synString = 'Synonyms:  ';
-        data[2].syn.forEach(function (synObj) {
-            synString += synObj.text + ', '
-        });
-        console.log(synString);
-        console.log('\n');
-    } catch (e) {
-        console.log('No Synonyms found. \n');
-    }
-
-    try {
-        var exString = 'Examples:\n';
-        data[3].ex.slice(0,5).forEach(function (exObj) {
-            exString += '-> ' + exObj.text + '\n'
-        });
-        console.log(exString);
-        console.log('\n');
-    } catch (e) {
-        console.log('No Examples found. \n');
-    }
+    data.forEach(function (item) {
+        //console.log(Object.keys(item)[0]);
+        switch (Object.keys(item)[0]) {
+           case 'defnition':
+               console.log('Definition: ' + item.defnition);
+               console.log('\n');
+               break;
+           case 'ex':
+               try {
+                   var exString = 'Examples:\n';
+                   item.ex.slice(0,5).forEach(function (exObj) {
+                       exString += '-> ' + exObj.text + '\n'
+                   });
+                   console.log(exString);
+                   console.log('\n');
+               } catch (e) {
+                   console.log('No Examples found. \n');
+               }
+               break;
+           case 'syn':
+               try {
+                   var synString = 'Synonyms:  ';
+                   item.syn.forEach(function (synObj) {
+                       synString += synObj.text + ', '
+                   });
+                   console.log(synString);
+                   console.log('\n');
+               } catch (e) {
+                   console.log('No Synonyms found. \n');
+               }
+               break;
+           case 'ant':
+               try {
+                   var antString = 'Antonyms:  ';
+                   item.ant.forEach(function (antObj) {
+                       antString += antObj.text + ', '
+                   });
+                   console.log(antString);
+                   console.log('\n');
+               } catch (e) {
+                   console.log('No Antonyms found. \n');
+               }
+               break;
+           default:
+               break;
+       }
+    });
 }
 
 function getRandomInt(max) {
@@ -205,8 +217,24 @@ if (process.argv.length>=3) {
 
                 break;
             case 'wod':
-                console.log(util.wordOfDay.length);
-                console.log('Word-of-the-day is:  ' + util.wordOfDay[getRandomInt(util.wordOfDay.length)]);
+                var woday = util.wordOfDay[getRandomInt(util.wordOfDay.length)];
+                console.log('Today\'s Word-of-the-day is:  ' + woday + '\n\n');
+                const WordAll = require('./word_all');
+                const wordallClass = WordAll.class;
+                const wordall = new wordallClass();
+                const wordallEmitter = WordAll.emitterObj;
+                wordallEmitter.on('wordAll', (ans) => {
+                    var groupedData = _.mapObject(_.groupBy(ans, 'category'),
+                        dataList => dataList.map(prop => _.omit(prop, 'category')));
+                    for (var key in groupedData) {
+                        if (groupedData.hasOwnProperty(key)) {
+                            console.log('Lexical Category: '+ key);
+                            printAllData(groupedData[key]);
+                            console.log('\n\n');
+                        }
+                    }
+                });
+                wordall.getAll(woday);
                 break;
             case 'play':
                 console.log('play');
