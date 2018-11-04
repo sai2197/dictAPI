@@ -1,5 +1,5 @@
 # dictAPI
-It's an oxford dictionary command line API
+It's a command line Dictionary API
 
 This has the following features:
 1) Given a word it can print definitions, synonyms, antonyms and example sentences.
@@ -10,6 +10,8 @@ This has the following features:
 
 4) This program can parse multi-worded words and get their details as provided by the Oxford Dictionaries API.
 
+5) This program uses the sources and API's of Oxford dictionaries available at  
+https://developer.oxforddictionaries.com/ .
 
 Usage: 
 
