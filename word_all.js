@@ -1,3 +1,7 @@
+/*
+* This file is used to generate all details for a given word.
+* */
+
 const https = require('https');
 const utils = require('./Utils');
 const EventEmitter = require('events').EventEmitter;
@@ -5,6 +9,7 @@ const countEmitter = new EventEmitter();
 const finalEmit = new EventEmitter();
 var resultObj = [];
 var callCount = 0;
+
 
 countEmitter.on('count', (callNo) => {
     if (callNo===3) {

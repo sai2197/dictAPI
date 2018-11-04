@@ -1,3 +1,7 @@
+/*
+* This file is used to generate antonyms for a given word.
+* */
+
 const https = require('https');
 const utils = require('./Utils');
 const EventEmitter = require('events').EventEmitter;

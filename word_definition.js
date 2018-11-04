@@ -1,20 +1,11 @@
+/*
+* This file is used to generate definitions for given word.
+* */
+
 const https = require('https');
 const utils = require('./Utils');
 const EventEmitter = require('events');
 
-/*
-const req = https.get(new URL('https://od-api.oxforddictionaries.com/api/v1/entries/en/apple/definitions'), options,(res) => {
-    //if (res.statusCode===200) {
-    res.on('data', (dat) => {
-        var d = dat.toString();
-        var e = JSON.parse(d);
-        //var f = JSON.parse();
-        console.log(e.results[0].id);
-    });
-    //}*!/
-    //console.log(res)
-});
-*/
 class WordDefinition extends EventEmitter{
     createCall(word) {
         var uri = utils.main + '/entries/en/' + word + '/definitions';

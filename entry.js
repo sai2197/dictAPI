@@ -12,6 +12,9 @@
 const _= require('underscore');
 const util = require('./Utils');
 
+/*
+* This function is a guide on how to use the program.
+* */
 function printHelp() {
     console.log('Usage: ');
     console.log('node entry.js -<option> <word>\n\n');
@@ -29,7 +32,9 @@ function printHelp() {
     console.log('Defnition: A child or a young person.');
 }
 
-
+/*
+* This funtion is used to print all data for a given word.
+* */
 function printAllData(data) {
 
     data.forEach(function (item) {
@@ -81,10 +86,9 @@ function printAllData(data) {
     });
 }
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-}
-
+/*
+* This is first section of code that is executed after the program is initialized.
+* */
 if (process.argv.length>=3) {
     var dictOption = process.argv[2];
     if (dictOption.toString()[0]!=='-') {
@@ -217,7 +221,7 @@ if (process.argv.length>=3) {
 
                 break;
             case 'wod':
-                var woday = util.wordOfDay[getRandomInt(util.wordOfDay.length)];
+                var woday = util.wordOfDay[util.getRandomInt(util.wordOfDay.length)];
                 console.log('Today\'s Word-of-the-day is:  ' + woday + '\n\n');
                 const WordAll = require('./word_all');
                 const wordallClass = WordAll.class;
@@ -237,7 +241,22 @@ if (process.argv.length>=3) {
                 wordall.getAll(woday);
                 break;
             case 'play':
-                console.log('play');
+                console.log('Starting GuessPlay...');
+                var playWord = util.gameSet[util.getRandomInt(util.gameSet.length)];
+                var WordPlay = require('./word_play');
+                var WordPlayClass = WordPlay.class;
+                var wordplay = new WordPlayClass();
+                var wordplayEmitter = WordPlay.emitterObj;
+                wordplayEmitter.on('wordPlay', (ans) => {
+                    for (var key in ans) {
+                        if (ans.hasOwnProperty(key)) {
+                            console.log('Lexical Category: '+ key);
+                            printAllData(ans[key]);
+                            console.log('\n\n');
+                        }
+                    }
+                });
+                wordplay.play(playWord);
                 break;
             default:
                 printHelp();

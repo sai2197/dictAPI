@@ -1,9 +1,11 @@
+/*
+* This file is used to generate examples for a given word.
+* */
+
 const https = require('https');
 const utils = require('./Utils');
 const EventEmitter = require('events').EventEmitter;
 var resultObj = [];
-
-
 
 
 class WordExample extends EventEmitter{
