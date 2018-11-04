@@ -26,3 +26,6 @@ Dependencies:
 underscore.js
 User can install dependencies by using the command 'npm install'
 (First check for properties.json)
+
+OS:
+Linux Ubuntu 16.04
