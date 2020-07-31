@@ -8,7 +8,7 @@ This has the following features:
 
 3) Also, this program has a game that displays clues about a word such as it's definition, synonyms, antonyms and sometimes usages.
 
-4) This program can parse multi-worded words and get their details as provided by the Oxford Dictionaries API.
+4) This program can parse multi-worded sentences and get their details as provided by the Oxford Dictionaries API.
 
 5) This program uses the sources and API's of Oxford dictionaries available at  
 https://developer.oxforddictionaries.com/ .
