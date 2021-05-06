@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/sai2197/dictAPI#readme",
   "dependencies": {
-    "underscore": "^1.9.1"
+    "underscore": "^1.12.1"
   }
 }
